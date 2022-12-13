@@ -1,14 +1,23 @@
-import { Observable } from 'rxjs';
- 
-const foo = new Observable((subscriber) => {
+
+const { Observable } = rxjs;
+const foo = new Observable((emitter) => {
   console.log('Hello');
-  subscriber.next(42);
-  subscriber.next(100); // "return" another value
-  subscriber.next(200); // "return" yet another
+  emitter.next(42);
+  emitter.next(100); // "return" another value
+  emitter.next(200); // "return" yet another
+  setTimeout(() => {
+    emitter.next(5000); // happens asynchronously
+  }, 10000);
 });
  
 console.log('before');
 foo.subscribe((x) => {
-  console.log(x);
+  console.log("suscribe 1:"+x);
 });
 console.log('after');
+
+console.log('before s1');
+foo.subscribe((x) => {
+  console.log("suscribe 2:"+x);
+});
+console.log('after s2');
