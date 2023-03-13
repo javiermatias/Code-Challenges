@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\35. Search Insert Position.js"
+            "program": "${workspaceFolder}\\Untitled-2.js"
         }
     ]
 }
